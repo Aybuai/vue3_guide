@@ -8,6 +8,8 @@
     <h1>{{ count }}</h1>
     <h1>{{ double }}</h1>
     <h2>{{ helloStr }}</h2>
+    <h1 v-if="loading">loading...</h1>
+    <img v-if="loaded" :src="resultData?.message" alt="" />
     <h1>X:{{ pageX }}, Y:{{ pageY }}</h1>
     <button @click="handleClick">👍🏻+1</button>
   </div>
@@ -16,6 +18,7 @@
 <script lang="ts" setup>
 import { ref, computed, reactive, toRefs, watch } from "vue";
 import useMousePosition from "./hooks/useMousePosition";
+import useURLLoader from "./hooks/useURLLoader";
 
 // const count = ref(0);
 
@@ -56,6 +59,11 @@ const { count, double, handleClick } = refData;
 
 // 导入的通用组件方法
 const { pageX, pageY } = useMousePosition();
+const {
+  loading,
+  loaded,
+  result: resultData,
+} = useURLLoader("https://dog.ceo/api/breeds/image/random");
 </script>
 
 

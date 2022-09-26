@@ -1,4 +1,4 @@
-import { ref, reactive, onMounted, onUnmounted, toRefs } from "vue";
+import { reactive, onMounted, onUnmounted, toRefs } from "vue";
 
 export default function useMousePosition() {
   const x = reactive({
