@@ -1,12 +1,12 @@
 import { reactive, toRefs } from "vue";
 import axios from "axios";
 
-function useURLLoader(url: string) {
+function useURLLoader<T>(url: string) {
   const loader = reactive({
     loading: true,
     loaded: false,
-    result: null,
-    error: null,
+    result: <T | null>null,
+    error: <T | null>null,
   });
 
   axios

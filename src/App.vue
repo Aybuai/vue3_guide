@@ -9,7 +9,7 @@
     <h1>{{ double }}</h1>
     <h2>{{ helloStr }}</h2>
     <h1 v-if="loading">loading...</h1>
-    <img v-if="loaded" :src="resultData?.message" alt="" />
+    <img v-if="loaded" :src="result?.message" alt="" />
     <h1>X:{{ pageX }}, Y:{{ pageY }}</h1>
     <button @click="handleClick">👍🏻+1</button>
   </div>
@@ -59,11 +59,15 @@ const { count, double, handleClick } = refData;
 
 // 导入的通用组件方法
 const { pageX, pageY } = useMousePosition();
-const {
-  loading,
-  loaded,
-  result: resultData,
-} = useURLLoader("https://dog.ceo/api/breeds/image/random");
+
+// 获取TS类型推导
+interface dogResult {
+  message: string;
+  status: string;
+}
+const { loading, loaded, result } = useURLLoader<dogResult>(
+  "https://dog.ceo/api/breeds/image/random"
+);
 </script>
 
 
