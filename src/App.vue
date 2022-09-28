@@ -12,6 +12,7 @@
     <img v-if="loaded" :src="result?.message" alt="" />
     <h1>X:{{ pageX }}, Y:{{ pageY }}</h1>
     <button @click="handleClick">👍🏻+1</button>
+    <DiaLog />
   </div>
 </template>
 
@@ -19,6 +20,7 @@
 import { ref, computed, reactive, toRefs, watch } from "vue";
 import useMousePosition from "./hooks/useMousePosition";
 import useURLLoader from "./hooks/useURLLoader";
+import DiaLog from "@/components/DiaLog.vue";
 
 // const count = ref(0);
 
