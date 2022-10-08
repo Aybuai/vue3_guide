@@ -10,6 +10,14 @@
     <h2>{{ helloStr }}</h2>
     <h1 v-if="loading">loading...</h1>
     <img v-if="loaded" :src="result?.message" alt="" />
+    <Suspense>
+      <template #default>
+        <async-show />
+      </template>
+      <template #fallback>
+        <h1>Loading !...</h1>
+      </template>
+    </Suspense>
     <h1>X:{{ pageX }}, Y:{{ pageY }}</h1>
     <button @click="handleClick">👍🏻+1</button>
     <DiaLog />
@@ -21,6 +29,7 @@ import { ref, computed, reactive, toRefs, watch } from "vue";
 import useMousePosition from "./hooks/useMousePosition";
 import useURLLoader from "./hooks/useURLLoader";
 import DiaLog from "@/components/DiaLog.vue";
+import AsyncShow from "@/components/AsyncShow.vue";
 
 // const count = ref(0);
 
