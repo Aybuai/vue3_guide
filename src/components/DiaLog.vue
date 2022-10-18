@@ -18,6 +18,6 @@ export default {};
   top: 50%;
   left: 50%;
   margin-top: -50px;
-  margin-left: -49px;
+  margin-left: -50px;
 }
 </style>
