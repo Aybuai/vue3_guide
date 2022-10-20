@@ -13,7 +13,7 @@ export default {};
   width: 100px;
   height: 100px;
   background: white;
-  border: 1px solid black
+  border: 1px solid black;
   position: fixed;
   top: 50%;
   left: 50%;
